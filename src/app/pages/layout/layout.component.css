@@ -1,0 +1,33 @@
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.layout-container {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  overflow: hidden;
+}
+
+.sidebar {
+  flex: 0 0 250px;
+  height: 100%;
+  background-color: #16423C;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+  background-color: #E9EFEC;
+  overflow-y: auto;
+}
+
+.footer {
+  background-color: #16423C;
+  color: #E9EFEC;
+  text-align: center;
+  padding: 10px;
+  width: 100%;
+}

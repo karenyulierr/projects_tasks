@@ -1,0 +1,56 @@
+.main{
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #6A9C89;
+  background-image: url('../../../assets/images/fondo.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-card {
+  width: 500px;
+  margin: 50px auto;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  background-color: #E9EFEC;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.error {
+  color: red;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+
+mat-form-field {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+mat-form-field input {
+  height: 30px;
+  line-height: 30px;
+  padding: 0;
+  text-align: left;
+}
+
+mat-form-field .mat-form-field-flex {
+  align-items: center;
+}

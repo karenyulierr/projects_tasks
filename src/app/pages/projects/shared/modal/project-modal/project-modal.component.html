@@ -1,0 +1,24 @@
+
+<div  mat-dialog-title class="module-header uppercase">
+  <mat-icon style="vertical-align: middle;">dashboard</mat-icon>
+  {{ project.id ? 'Editar Proyecto' : 'Agregar Proyecto' }}
+</div>
+
+<div mat-dialog-content class="flex flex-column mt-5">
+  <mat-form-field appearance="fill">
+    <mat-label>Título</mat-label>
+    <input matInput [(ngModel)]="project.title" required />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Descripción</mat-label>
+    <textarea matInput [(ngModel)]="project.description" required></textarea>
+  </mat-form-field>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-fab extended style="background-color: #333;" class="uppercase" (click)="close()">
+    <mat-icon>block</mat-icon>Cancelar</button>
+  <button mat-fab extended style="background-color: #16423C;" class="uppercase" (click)="save()"
+    cdkFocusInitial><mat-icon>add</mat-icon> Guardar</button>
+</div>
