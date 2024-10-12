@@ -1,27 +1,42 @@
-# ProjectsTasks
+# PROTA
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.16.
+## Descripción
 
-## Development server
+Este proyecto corresponde a la **Prueba Técnica** para el puesto de **Desarrollador Frontend - Angular**. La aplicación está diseñada para gestionar proyectos y tareas, y utiliza Angular junto con un servidor JSON simulado para el manejo de datos.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Requisitos
 
-## Code scaffolding
+1. Clona el repositorio: **git clone https://github.com/karenyulierr/projects_tasks.git** o Descarga el .zip
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+2. Instala las dependencias del proyecto: **npm install**
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+## Ejecución de la Aplicación
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Para ejecutar la aplicación, sigue estos pasos:
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+1. Inicia el servidor de desarrollo de Angular: **ng serve**
 
-## Further help
+2. En otra terminal, asegúrate de estar en la raíz del proyecto y ejecuta el servidor JSON:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+**npx json-server --watch -p 3001 db.json**
+
+
+**Nota**: Si el puerto 3001 está ocupado, las APIs no funcionarán correctamente, ya que están configuradas para acceder a este puerto.
+
+
+## Acceso a la Aplicación
+Para ingresar al sistema, utiliza las siguientes credenciales:
+
+correo: **1234**
+Contraseña: **1234**
+
+
+
+## Notas Adicionales
+
+1. Asegúrate de que el servidor JSON esté corriendo antes de intentar acceder a las APIs en el puerto 3001.
+
+2. Puedes acceder a la aplicación a través de tu navegador en http://localhost:4200.
