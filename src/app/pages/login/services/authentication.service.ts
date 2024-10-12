@@ -10,7 +10,7 @@ export class AuthenticationService {
   constructor(private router: Router) { }
 
   login(username: string, password: string): boolean {
-    if (username === '1234' && password === '1234') {
+    if (username === 'admin@gmail.com' && password === '1234') {
       localStorage.setItem('auth', 'true');
       return true;
     }

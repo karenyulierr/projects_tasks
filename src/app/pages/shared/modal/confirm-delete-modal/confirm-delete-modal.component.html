@@ -5,7 +5,7 @@
 <mat-dialog-content class="py-3">
   <p>¿Estás seguro de que deseas eliminar esta {{ data.type === 'task' ? 'tarea' : 'proyecto' }}: <strong>{{ data.name }}</strong>?</p>
 </mat-dialog-content>
-<mat-dialog-actions>
+<mat-dialog-actions style=" display: flex; justify-content: flex-end;">
   <button mat-fab extended style="background-color: #333;" class="uppercase" (click)="onCancel()">
     <mat-icon>block</mat-icon>Cancelar
   </button>

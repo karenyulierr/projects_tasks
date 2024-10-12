@@ -30,7 +30,7 @@ Para ejecutar la aplicación, sigue estos pasos:
 ## Acceso a la Aplicación
 Para ingresar al sistema, utiliza las siguientes credenciales:
 
-correo: **1234**
+Correo: **admin@gmail.com**
 Contraseña: **1234**
 
 
