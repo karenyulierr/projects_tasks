@@ -1,0 +1,18 @@
+<div mat-dialog-title class="module-header uppercase">
+  <mat-icon style="vertical-align: middle;">{{ data.type === 'task' ? 'task' : 'work' }}</mat-icon>
+  Confirmar Eliminación de {{ data.type === 'task' ? 'Tarea' : 'Proyecto' }}
+</div>
+<mat-dialog-content class="py-3">
+  <p>¿Estás seguro de que deseas eliminar esta {{ data.type === 'task' ? 'tarea' : 'proyecto' }}: <strong>{{ data.name }}</strong>?</p>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-fab extended style="background-color: #333;" class="uppercase" (click)="onCancel()">
+    <mat-icon>block</mat-icon>Cancelar
+  </button>
+
+  <button mat-fab extended style="background-color: #D9534F;" (click)="onConfirm()" matTooltip="Eliminar"
+    class="uppercase">
+    <mat-icon>delete</mat-icon>
+    Eliminar
+  </button>
+</mat-dialog-actions>

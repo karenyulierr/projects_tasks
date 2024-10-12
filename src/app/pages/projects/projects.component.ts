@@ -7,6 +7,8 @@ import { Project } from './models/projects.interface';
 import { MatDialog } from '@angular/material/dialog';
 import { ProjectModalComponent } from './shared/modal/project-modal/project-modal.component';
 import { MatSnackBar } from "@angular/material/snack-bar";
+import { ConfirmDeleteModalModule } from '../shared/modal/confirm-delete-modal/confirm-delete-modal.module';
+import { ConfirmDeleteModalComponent } from '../shared/modal/confirm-delete-modal/confirm-delete-modal.component';
 
 @Component({
   selector: 'app-projects',
@@ -22,7 +24,7 @@ export class ProjectsComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private projectsService: ProjectsService, public dialog: MatDialog,     private snackbar: MatSnackBar) {
+  constructor(private projectsService: ProjectsService, public dialog: MatDialog, private snackbar: MatSnackBar) {
     this.dataSource = new MatTableDataSource<Project>(this.projects);
   }
 
@@ -58,14 +60,13 @@ export class ProjectsComponent implements OnInit {
 
   openModal(project?: Project): void {
     const dialogRef = this.dialog.open(ProjectModalComponent, {
-      width: '400px',
+      width: '500px',
       data: { project }
     });
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         if (project) {
-          // Editar proyecto
           this.projectsService.editProject(project.id, result).subscribe({
             next: () => {
               this.loadProjects();
@@ -93,7 +94,6 @@ export class ProjectsComponent implements OnInit {
             }
           });
         } else {
-          // Agregar proyecto
           const maxId = this.projects.length > 0 ? Math.max(...this.projects.map(p => Number(p.id))) : 0;
           result.id = (maxId + 1).toString();
 
@@ -128,10 +128,16 @@ export class ProjectsComponent implements OnInit {
     });
   }
 
+  viewProject(id: number): void {
+    const projectToView = this.projects.find(p => p.id === id);
 
+    const dialogRef = this.dialog.open(ProjectModalComponent, {
+      width: '400px',
+      data: { project: projectToView, readOnly: true }
+    });
 
-  viewProject(id: number) {
-    console.log(`Ver proyecto con ID: ${id}`);
+    dialogRef.afterClosed().subscribe(result => {
+    });
   }
 
   editProject(id: number) {
@@ -140,10 +146,57 @@ export class ProjectsComponent implements OnInit {
   }
 
   deleteProject(id: number) {
-    // console.log(`Eliminar proyecto con ID: ${id}`);
-    // this.projectsService.deleteProject(id).subscribe(() => {
-    //   this.loadProjects();
-    // });
-    console.log(`Eliminar proyecto con ID: ${id}`);
+    this.projectsService.getTasks().subscribe(tasks => {
+      const projectInUse = tasks.some(task => task.projects.includes(id.toString()));
+
+      if (projectInUse) {
+        this.snackbar.open(
+          "No se puede eliminar el proyecto porque ya está asociado a una tarea.",
+          "cerrar",
+          {
+            panelClass: ["snackbar-error"],
+            verticalPosition: "top",
+            duration: 4000,
+          }
+        );
+      } else {
+        const projectToDelete = this.projects.find(p => p.id === id);
+        const dialogRef = this.dialog.open(ConfirmDeleteModalComponent, {
+          width: '500px',
+          data: {
+            type: 'proyecto',
+            name: projectToDelete?.title
+          }
+        });
+
+        dialogRef.afterClosed().subscribe(result => {
+          if (result) {
+            this.projectsService.deleteProject(id).subscribe(() => {
+              this.loadProjects();
+              this.snackbar.open(
+                "Proyecto eliminado con éxito.",
+                "cerrar",
+                {
+                  panelClass: ["snackbar-succeses"],
+                  verticalPosition: "top",
+                  duration: 2000,
+                }
+              );
+            }, error => {
+              console.error('Error al eliminar el proyecto:', error);
+              this.snackbar.open(
+                "Ocurrió un error al eliminar el proyecto.",
+                "cerrar",
+                {
+                  panelClass: ["snackbar-error"],
+                  verticalPosition: "top",
+                  duration: 4000,
+                }
+              );
+            });
+          }
+        });
+      }
+    });
   }
 }

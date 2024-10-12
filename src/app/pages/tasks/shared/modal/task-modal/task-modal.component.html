@@ -1,0 +1,38 @@
+<div mat-dialog-title class="module-header uppercase">
+  <mat-icon style="vertical-align: middle;">task</mat-icon>
+  {{ isReadOnly ? 'Ver Tarea' : task.id ? 'Editar Tarea' : 'Agregar Tarea' }}
+</div>
+
+<div mat-dialog-content class="flex flex-column mt-5">
+  <mat-form-field appearance="fill">
+    <mat-label>Título</mat-label>
+    <input matInput [(ngModel)]="task.title" [disabled]="isReadOnly" />
+  </mat-form-field>
+
+  <div>
+    <mat-label>Estado</mat-label>
+    <mat-radio-group [(ngModel)]="task.state" [disabled]="isReadOnly">
+      <mat-radio-button [value]="true">Completada</mat-radio-button>
+      <mat-radio-button [value]="false">No completada</mat-radio-button>
+    </mat-radio-group>
+  </div>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Proyectos</mat-label>
+    <mat-select [(ngModel)]="task.projects" multiple [disabled]="isReadOnly">
+      <mat-option *ngFor="let project of projects" [value]="project.id">
+        {{ project.title }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-fab extended style="background-color: #333;" class="uppercase" (click)="close()">
+    <mat-icon>block</mat-icon>Cancelar
+  </button>
+
+  <button *ngIf="!isReadOnly" mat-fab extended style="background-color: #16423C;" class="uppercase" (click)="save()" cdkFocusInitial>
+    <mat-icon>add</mat-icon>Guardar
+  </button>
+</div>

@@ -2,70 +2,18 @@
   "projects": [
     {
       "id": "1",
-      "title": "Project oneassaassa232332321",
-      "description": "one - that are projects for children12"
-    },
-    {
-      "id": "2",
-      "title": "Project two",
-      "description": "two - that are projects for children"
-    },
-    {
-      "id": "3",
-      "title": "Project three",
-      "description": "three - that are projects for children"
-    },
-    {
-      "id": "4",
-      "title": "Project four",
-      "description": "four - that are projects for children"
-    },
-    {
-      "id": "5",
-      "title": "prueba 3",
-      "description": "sajkas 2"
-    },
-    {
-      "id": "6",
-      "title": "322",
-      "description": "2332"
-    },
-    {
-      "id": "7",
-      "title": "aaaaaa3",
-      "description": "aaaasaas"
-    },
-    {
-      "id": "8",
-      "title": "aaa1",
-      "description": "bbb1"
-    },
-    {
-      "id": "9",
-      "title": "s",
-      "description": "sdsd"
+      "title": "Prueva dev",
+      "description": "proyecto de prueba"
     }
   ],
   "tasks": [
     {
       "id": "1",
-      "title": "Task one",
-      "description": "one - Task"
-    },
-    {
-      "id": "2",
-      "title": "Task two",
-      "description": "two - Task"
-    },
-    {
-      "id": "3",
-      "title": "Task three",
-      "state": "complet"
-    },
-    {
-      "id": "4",
-      "title": "Task four",
-      "description": "four - Task"
+      "title": "Tarea dev",
+      "state": true,
+      "projects": [
+        "1"
+      ]
     }
   ]
 }

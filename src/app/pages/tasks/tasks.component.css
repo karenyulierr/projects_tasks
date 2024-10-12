@@ -1,0 +1,56 @@
+.module-header {
+  background-color: #16423C;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.module-header h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.module-header p {
+  font-size: 16px;
+  color: #16423C;
+  margin-top: 5px;
+}
+
+.center-header {
+  text-align: center;
+}
+
+.status-container {
+  display: flex;
+  align-items: center;
+}
+
+.completed-text {
+  color: #2E7D32;
+  font-weight: bold;
+}
+
+.not-completed-text {
+  color: #C62828;
+  font-weight: bold;
+}
+
+.completed-icon {
+  color: #A5D6A7;
+  margin-right: 4px;
+}
+
+.not-completed-icon {
+  color: #EF9A9A;
+  margin-right: 4px;
+}
+
+
+.projects-list {
+  color: #16423C;
+  font-weight: 500;
+}

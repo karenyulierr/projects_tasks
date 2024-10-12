@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './pages/guards/auth.guard';
 import { LayoutComponent } from './pages/layout/layout.component';
+import { TasksModule } from './pages/tasks/tasks.module';
 
 
 const routes: Routes = [
@@ -30,17 +31,10 @@ const routes: Routes = [
           ),
       },
       {
-        path: "projects1",
+        path: "tasks",
         loadChildren: () =>
-          import("./pages/projects/projects.module").then(
-            (m) => m.ProjectsModule
-          ),
-      },
-      {
-        path: "projects2",
-        loadChildren: () =>
-          import("./pages/projects/projects.module").then(
-            (m) => m.ProjectsModule
+          import("./pages/tasks/tasks.module").then(
+            (m) => m.TasksModule
           ),
       },
       { path: '**', redirectTo: '' }

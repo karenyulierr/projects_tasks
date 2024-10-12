@@ -1,0 +1,11 @@
+.module-header {
+  background-color: #16423C;
+  color: white;
+  text-align: center;
+}
+
+.module-header div {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+}

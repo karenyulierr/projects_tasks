@@ -1,25 +1,32 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ProjectsComponent } from './projects.component';
-import { ProjectsRoutingModule } from './projects-routing.module'
+import { TasksComponent } from './tasks.component';
+import { TasksRoutingModule } from './tasks-routing.module';
+import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
-import {MatIconModule} from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button';
-import {MatTooltipModule} from '@angular/material/tooltip';
-import { ProjectModalComponent } from './shared/modal/project-modal/project-modal.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { FormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { TaskModalComponent } from './shared/modal/task-modal/task-modal.component';
+import { MatRadioModule } from '@angular/material/radio';
+import {MatSelectModule} from '@angular/material/select';
+
+
 
 @NgModule({
-  declarations: [ ProjectsComponent, ProjectModalComponent],
+  declarations: [
+    TasksComponent,
+    TaskModalComponent
+  ],
   imports: [
     CommonModule,
-    ProjectsRoutingModule,
+    TasksRoutingModule,
     MatTableModule,
     MatFormFieldModule,
     MatInputModule,
@@ -30,7 +37,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatTooltipModule,
     FormsModule,
     MatDialogModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatRadioModule,
+    MatSelectModule
   ]
 })
-export class ProjectsModule { }
+export class TasksModule { }

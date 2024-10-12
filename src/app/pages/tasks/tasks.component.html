@@ -20,39 +20,58 @@
       <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
       <td mat-cell *matCellDef="let row"> {{row.id}} </td>
     </ng-container>
+
     <ng-container matColumnDef="title">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Título </th>
       <td mat-cell *matCellDef="let row"> {{row.title}} </td>
     </ng-container>
-    <ng-container matColumnDef="description">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
-      <td mat-cell *matCellDef="let row"> {{row.description}} </td>
+
+    <ng-container matColumnDef="state">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Estado </th>
+      <td mat-cell *matCellDef="let row">
+        <span class="status-container" [ngClass]="{'completed-text': row.state, 'not-completed-text': !row.state}">
+          <mat-icon [ngClass]="{'completed-icon': row.state, 'not-completed-icon': !row.state}">
+            {{ row.state ? 'check_circle' : 'cancel' }}
+          </mat-icon>
+          {{ row.state ? 'Completada' : 'No completada' }}
+        </span>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="projects">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Proyectos </th>
+      <td mat-cell *matCellDef="let row">
+        <span class="projects-list">
+          {{ row.projectTitles }}
+        </span>
+      </td>
     </ng-container>
     <ng-container matColumnDef="options">
       <th mat-header-cell *matHeaderCellDef class="center-header"> Opciones </th>
       <td mat-cell *matCellDef="let row" class="flex justify-content-center gap-3 py-2">
-        <button mat-fab extended style="background-color: #5CB85C;" (click)="viewProject(row.id)" matTooltip="Ver"
+        <button mat-fab extended style="background-color: #5CB85C;" (click)="viewTask(row.id)" matTooltip="Ver"
           class="uppercase">
           <mat-icon>visibility</mat-icon>
           Ver
         </button>
-        <button mat-fab extended style="background-color: #FFB74D;" (click)="editProject(row.id)" matTooltip="Editar"
+        <button mat-fab extended style="background-color: #FFB74D;" (click)="editTask(row.id)" matTooltip="Editar"
           class="uppercase">
           <mat-icon>edit</mat-icon>
           Editar
         </button>
-        <button mat-fab extended style="background-color: #D9534F;" (click)="deleteProject(row.id)"
-          matTooltip="Eliminar" class="uppercase">
+        <button mat-fab extended style="background-color: #D9534F;" (click)="deleteTask(row.id)" matTooltip="Eliminar"
+          class="uppercase">
           <mat-icon>delete</mat-icon>
           Eliminar
         </button>
       </td>
     </ng-container>
+
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     <tr class="mat-row" *matNoDataRow>
-      <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
     </tr>
   </table>
-  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of projects"></mat-paginator>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of tasks"></mat-paginator>
 </div>
