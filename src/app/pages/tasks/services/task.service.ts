@@ -29,7 +29,7 @@ export class TaskService {
   }
 
   getTasks(): Observable<Task[]> {
-    return this.http.get<Task[]>(this.apiUrl).pipe(
+    return this.http.get<Task[]>(`${this.apiUrl}/tasks`).pipe(
       tap((data) => {
         this.tasks = data;
       }),
