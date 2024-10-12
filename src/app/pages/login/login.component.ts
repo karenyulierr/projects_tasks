@@ -28,7 +28,6 @@ export class LoginComponent implements OnInit{
 
     if (this.authenticationService.login(email, password)) {
       this.router.navigate(['/projects']);
-      console.log("login");
     } else {
       this.errorMessage = 'Usuario o contraseña incorrectos';
     }

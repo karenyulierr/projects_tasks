@@ -147,7 +147,9 @@ export class ProjectsComponent implements OnInit {
 
   deleteProject(id: number) {
     this.projectsService.getTasks().subscribe(tasks => {
-      const projectInUse = tasks.some(task => task.projects.includes(id.toString()));
+      const projectInUse = tasks.some(task =>
+        Array.isArray(task.projects) && task.projects.includes(id.toString())
+      );
 
       if (projectInUse) {
         this.snackbar.open(
@@ -177,7 +179,7 @@ export class ProjectsComponent implements OnInit {
                 "Proyecto eliminado con éxito.",
                 "cerrar",
                 {
-                  panelClass: ["snackbar-succeses"],
+                  panelClass: ["snackbar-success"],
                   verticalPosition: "top",
                   duration: 2000,
                 }

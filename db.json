@@ -2,15 +2,24 @@
   "projects": [
     {
       "id": "1",
-      "title": "Prueva dev",
-      "description": "proyecto de prueba"
+      "title": "Proyecto prueba",
+      "description": "Prueba descripción"
     }
   ],
   "tasks": [
     {
       "id": "1",
-      "title": "tarea prueba 43",
-      "state": true,
+      "title": "prueba dev 1",
+      "state": true
+    },
+    {
+      "id": "2",
+      "title": "prueba dev 2",
+      "state": false
+    },
+    {
+      "id": "3",
+      "title": "prueva dev 3",
       "projects": [
         "1"
       ]
